@@ -1,0 +1,16 @@
+version: '2.4'
+
+services:
+  bot:
+    build:
+      context: .
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - "2292:2292"
+    expose: 
+      - "2292"
+
+  exportapi:
+    image: fyko/export-api
